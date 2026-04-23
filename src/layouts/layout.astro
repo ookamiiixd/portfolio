@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+import { Cursor } from "../components/cursor";
+import { Footer } from "./footer";
+import { Header } from "./header";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/logo.png" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Roy's Personal Website</title>
+		<meta name="description" content="Passionate Full-Stack Developer and Tech Enthusiast" />
+		<meta property="og:title" content="Roy's Personal Website" />
+		<meta
+			property="og:description"
+			content="Passionate Full-Stack Developer and Tech Enthusiast"
+		/>
+		<meta property="og:image" content="https://ookamiiixd.dev/og.png" />
+		<meta property="og:url" content="https://ookamiiixd.dev" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content="https://ookamiiixd.dev/og.png" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Roy's Personal Website" />
+	</head>
+	<body class="md:cursor-none bg-background text-white font-mono overflow-x-hidden">
+		<Header client:load />
+		<Cursor client:load />
+		<slot />
+		<Footer client:load />
+	</body>
+</html>

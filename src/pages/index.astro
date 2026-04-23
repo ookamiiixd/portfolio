@@ -1,0 +1,24 @@
+---
+import { About } from "../components/about";
+import { Blog } from "../components/blog";
+import { Contact } from "../components/contact";
+import { Experience } from "../components/experience";
+import { Hero } from "../components/hero";
+import { Work } from "../components/work";
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout>
+	<main>
+		<Hero client:load />
+		<About client:visible />
+		<Work client:visible />
+		<Experience client:visible />
+		<Blog client:only="react" >
+			<div slot="fallback">
+				<p class="text-center text-muted">Loading blog posts...</p>
+			</div>
+		</Blog>
+		<Contact client:visible />
+	</main>
+</Layout>

@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme inline {
+	--font-display: "Bebas Neue", "sans-serif";
+	--font-serif: "Instrument Serif", "serif";
+	--font-mono: "DM Mono", "monospace";
+	--color-background: #08080d;
+	--color-surface: #0f0f18;
+	--color-accent: #e8ff47;
+	--color-muted: #6b6b80;
+}
+
+html {
+	@apply scroll-smooth;
+}
+
+a,
+button {
+	@apply md:cursor-none;
+}
+
+.clip-corner {
+	clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+.ghost-num {
+	@apply font-display text-[clamp(100px,15vw,190px)] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.05)] select-none pointer-events-none leading-none;
+}
