@@ -1,11 +1,8 @@
 import { motion } from "motion/react";
-import { Suspense, use } from "react";
-import { ErrorBoundary } from "react-error-boundary";
 import { childrenVariants, parentVariants } from "../lib/animation";
-import { fetchPosts } from "../lib/hashnode";
-import { DynamicCard } from "./dynamic-card";
+import { DynamicCard, type DynamicCardData } from "./dynamic-card";
 
-export function Blog() {
+export function Blog({ posts }: { posts: DynamicCardData[] }) {
 	return (
 		<section
 			id="blog"
@@ -34,45 +31,23 @@ export function Blog() {
 							</h2>
 						</motion.div>
 						<motion.a
-							href="https://blog.ookamiiixd.dev"
+							href="https://dev.to/ookamiiixd"
 							target="_blank"
 							className="text-muted hover:text-white text-[11px] tracking-[.15em] uppercase flex items-center gap-2 transition-colors"
 							rel="noopener"
 							variants={childrenVariants}
 						>
-							More on Hashnode ↗
+							More on DEV.to ↗
 						</motion.a>
 					</div>
 				</div>
 			</motion.div>
 
-			<ErrorBoundary
-				fallback={
-					<p className="text-center text-red-500">Failed to load blog posts.</p>
-				}
-			>
-				<Suspense
-					fallback={
-						<p className="text-center text-muted">Loading blog posts...</p>
-					}
-				>
-					<Posts />
-				</Suspense>
-			</ErrorBoundary>
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				{posts.map((post, i) => (
+					<DynamicCard key={i} data={post} custom={i} />
+				))}
+			</div>
 		</section>
-	);
-}
-
-const postsPromise = fetchPosts();
-
-function Posts() {
-	const posts = use(postsPromise);
-
-	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-			{posts.map((post, i) => (
-				<DynamicCard key={i} data={post} custom={i} />
-			))}
-		</div>
 	);
 }

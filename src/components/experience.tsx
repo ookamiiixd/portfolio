@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { experiences } from "../data/experience";
+import { experiences } from "../data/experiences";
 import { childrenVariants, parentVariants } from "../lib/animation";
 
 const variants: Variants = {

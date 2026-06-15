@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useLayoutEffect, useRef, useState } from "react";
-import { techs } from "../data/tech";
+import { techs } from "../data/techs";
 import { childrenVariants, parentVariants } from "../lib/animation";
 
 export function About() {

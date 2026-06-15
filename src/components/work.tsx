@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { noteworthyProjects, projects } from "../data/project";
+import { noteworthyProjects, projects } from "../data/projects";
 import { childrenVariants, parentVariants } from "../lib/animation";
 import { DynamicCard } from "./dynamic-card";
 
